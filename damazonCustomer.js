@@ -27,7 +27,7 @@ function purchase() {
     				console.log("Your purchase of " + result.quantity + " " + rows[k].product_Name + " is complete.");
     				var total= result.quantity * rows[k].price;
     				console.log("The total of your purchase is: $"+total);
-    				salesSheet();
+    				// 
     				var newQuantity= rows[k].stock - result.quantity;
     				connection.query("UPDATE products SET stock = ? WHERE item_id = ?",[newQuantity,result.Id_of_purchase],function(err,res2){
 						if (err) throw err;
@@ -58,7 +58,7 @@ function newPurchase(){
 
 	});
 }
-function salesSheet(){
-	SELECT departments.departmentName, SUM(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID GROUP BY ShipperName;
+// function salesSheet(){
+// 	SELECT departments.departmentName, SUM(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID=Shippers.ShipperID GROUP BY ShipperName;
 
-}
+// }
